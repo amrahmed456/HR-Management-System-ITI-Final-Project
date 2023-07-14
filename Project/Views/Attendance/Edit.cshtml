@@ -1,0 +1,81 @@
+﻿@model EmployeeAttendance
+
+@{
+    ViewData["Title"] = "Edit Attendance";
+    ViewData["ActiveLink"] = "attendance";
+}
+
+<form action="/attendance/edit/@Model.Id" method="post">
+   @Html.AntiForgeryToken()
+   <input type="text" hidden name="Ssn" value="1" />
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Hero card-->
+            <div class="card mb-12">
+                <!--begin::Hero body-->
+                <div class="card-body flex-column p-5">
+                    <!--begin::Hero content-->
+                    <a href="/attendance" class="btn btn-sm btn-info">Back To Attendance</a>
+                    <div class="d-flex align-items-center h-lg-300px p-5 p-lg-15">
+                        <!--begin::Wrapper-->
+
+                        <div class="d-flex flex-column align-items-start justift-content-center flex-equal me-5">
+                            <!--begin::Title-->
+                            <h1 class="fw-bolder fs-4 fs-lg-1 text-gray-800 mb-2">Edit Employee Attendance</h1>
+
+                            <h3 class="mb-12 lead">Attendance For: <span class="fw-bold">@Model.Employee.Name</span>, @Model.CreatedAt.ToShortDateString()</h3>
+                            <!--end::Title-->
+                            <div class="row g-9 mb-7">
+                                <!--begin::Col-->
+                                <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-bold mb-2">Check in</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input name="CheckIn" class="form-control form-control-solid flatpickr-input custom_time_picker" placeholder="Pick date" type="text" readonly="readonly" value="@Model.CheckIn.TimeOfDay">
+                                    <!--end::Input-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-bold mb-2">Check out</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                        <input name="CheckOut" class="form-control form-control-solid flatpickr-input custom_time_picker" placeholder="Pick date" type="text" readonly="readonly" value="@Model.CheckOut.TimeOfDay">
+                                    <!--end::Input-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="indicator-label">Submit</span>
+
+                            </button>
+                        </div>
+
+
+                        <!--end::Wrapper-->
+
+                    </div>
+                    <!--end::Hero content-->
+                    <!--begin::Hero nav-->
+                    <!--end::Hero nav-->
+                </div>
+                <!--end::Hero body-->
+            </div>
+            <!--end::Hero card-->
+
+
+
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Post-->
+</div>
+
+</form>

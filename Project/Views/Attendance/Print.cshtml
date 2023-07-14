@@ -1,0 +1,131 @@
+﻿@model List<EmployeeAttendance>
+@{
+    ViewData["Title"] = "Print Attendances";
+    Layout = "_GeneralLayout";
+}
+
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+	<!--begin::Post-->
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+	<!--begin::Container-->
+	<div id="kt_content_container" class="container-xxl">
+	<!-- begin::Invoice 1-->
+	<div class="card">
+		<!-- begin::Body-->
+		<div class="card-body py-20">
+			<!-- begin::Wrapper-->
+			<div class="mw-lg-950px mx-auto w-100">
+				<!-- begin::Header-->
+				<div class="d-flex justify-content-between flex-column flex-sm-row mb-19">
+					<h4 class="fw-boldest text-gray-800 fs-2qx pe-5 pb-7">ATTENDANCE REPORT</h4>
+					<!--end::Logo-->
+					<div class="text-sm-end">
+						<!--begin::Logo-->
+						<a href="#">
+							<img alt="Logo" src="/assets/media/logos/logo-1.svg">
+						</a>
+						<!--end::Logo-->
+						<!--begin::Text-->
+						<div class="text-sm-end fw-bold fs-4 text-muted mt-7">
+							<div>Cedcilia Chapman, 711-2880 Nulla St, Mankato</div>
+							<div>Mississippi 96522</div>
+						</div>
+						<!--end::Text-->
+					</div>
+				</div>
+				<!--end::Header-->
+				<!--begin::Body-->
+				<div class="border-bottom pb-7">
+					
+					<!--begin::Wrapper-->
+					<div class="d-flex justify-content-between flex-column flex-md-row">
+						<!--begin::Content-->
+						<div class="flex-grow-1 pt-8 mb-13">
+							<!--begin::Table-->
+							<div class="table-responsive border-bottom mb-14">
+								<table class="table">
+									<thead>
+										<tr class="border-bottom fs-6 fw-bolder text-muted text-uppercase">
+											<th class="min-w-100px pe-lg-6 pb-9 text-start">Date</th>
+											<th class="min-w-175px pb-9">Employee</th>
+											<th class="min-w-70px pb-9 text-start">Department</th>
+											<th class="min-w-80px pb-9 text-start">Check in</th>
+											<th class="min-w-100px pe-lg-6 pb-9 text-start">Check Out</th>
+											<th class="min-w-100px pe-lg-6 pb-9 text-start">Overtime</th>
+											<th class="min-w-100px pe-lg-6 pb-9 text-start">Deduction</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach (var attendance in Model)
+										{
+											<tr class="fw-bolder text-gray-700 fs-5 text-start">
+												<td class="pt-11">@attendance.CreatedAt.ToShortDateString()</td>
+												<td class="d-flex align-items-center pt-11">
+													@attendance.Employee.Name
+												</td>
+												<td class="pt-11">@attendance.Department</td>
+												 @if(attendance.IsVacation){
+													<td colspan="4" class="text text-success">@attendance.VacationName</td>
+												}
+												else
+												{
+													<td class="pt-11">@attendance.CheckIn.ToString("hh\\:mm\\ tt")</td>
+													<td class="pt-11">@attendance.CheckOut.ToString("hh\\:mm\\ tt")</td>
+
+													<td class="pt-11 text-success">
+														@if (attendance.OverTimeValue > 0)
+														{
+															@Html.Raw("+"+Math.Round( attendance.OverTimeValue, 2) + " EGP <br /> (" + attendance.OverTimeHours + " Hrs)")
+															;
+														}
+													</td>
+													<td class="pt-11 text-danger">
+														@if (attendance.DeductionValue > 0)
+														{
+															@Html.Raw("-"+Math.Round( attendance.DeductionValue, 2 ) + " EGP <br /> (" + attendance.DeductionHours + " Hrs)")
+															;
+														}
+													</td>
+												}
+
+												
+												
+											</tr>
+										}
+											
+									</tbody>
+								</table>
+							</div>
+							<!--end::Table-->
+							
+						</div>
+						
+					</div>
+					<!--end::Wrapper-->
+				</div>
+				<!--end::Body-->
+				<!-- begin::Footer-->
+				<div class="d-flex flex-stack flex-wrap mt-lg-20 pt-13">
+					<!-- begin::Actions-->
+					<div class="my-1 me-5">
+						<!-- begin::Pint-->
+						<button type="button" class="btn btn-success my-1 me-12" onclick="window.print();">Print</button>
+						<!-- end::Pint-->
+						
+					</div>
+					<!-- end::Actions-->
+					
+				</div>
+				<!-- end::Footer-->
+			</div>
+			<!-- end::Wrapper-->
+		</div>
+		<!-- end::Body-->
+	</div>
+	<!-- end::Invoice 1-->
+	</div>
+	<!--end::Container-->
+	</div>
+	<!--end::Post-->
+	</div>

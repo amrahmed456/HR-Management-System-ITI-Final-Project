@@ -1,0 +1,274 @@
+﻿@*@model List<Employee>*@
+@{
+	ViewData["Title"] = "Employees";
+	ViewData["ActiveLink"] = "employee";
+	List<Department> departmentsList = ViewData["departmentsList"] as List<Department>;
+}
+
+<div class="modal fade" id="kt_modal_edit_customer" tabindex="-1" style="display: none;" aria-hidden="true">
+	<!--begin::Modal dialog-->
+	<div class="modal-dialog modal-dialog-centered mw-650px" data-select2-id="select2-data-78-wa3i">
+		<!--begin::Modal content-->
+		<div class="modal-content">
+			<!--begin::Form-->
+
+			<form class="form fv-plugins-bootstrap5 fv-plugins-framework" id="kt_modal_edit_customer_form"
+				  asp-controller="Employee" asp-action="Edit" method="post">
+				<!--begin::Modal header-->
+				<div class="modal-header" id="kt_modal_edit_customer_header">
+					<!--begin::Modal title-->
+					<h2 class="fw-bolder">Edit Employee | <p style="display: inline;" id="editedEmpName2" class="text-dark"></h2>
+					<!--end::Modal title-->
+					<!--begin::Close-->
+					<div id="kt_modal_edit_customer_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+						<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+						<span class="svg-icon svg-icon-1">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black"></rect>
+								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black"></rect>
+							</svg>
+						</span>
+						<!--end::Svg Icon-->
+					</div>
+					<!--end::Close-->
+				</div>
+				<!--end::Modal header-->
+				<!--begin::Modal body-->
+				<div class="modal-body py-10 px-lg-17">
+					<!--begin::Scroll-->
+					<div class="scroll-y me-n7 pe-7" id="kt_modal_edit_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_edit_customer_header" data-kt-scroll-wrappers="#kt_modal_edit_customer_scroll" data-kt-scroll-offset="300px" style="max-height: 229px;" data-select2-id="select2-data-kt_modal_edit_customer_scroll">
+						<div class="row">
+							<div class="col-12 col-md-6">
+								<!--begin::Input group-->
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-bold mb-2">Name</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input id="editedEmpId" type="text" class="form-control form-control-solid" name="Id" hidden="">
+									<input id="editedEmpSsn" type="text" class="form-control form-control-solid" name="Ssn" hidden="">
+									<input required id="editedEmpName" type="text" class="form-control form-control-solid" placeholder="Employee Name" name="Name">
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Input group-->
+							</div>
+							<div class="col-12 col-md-6">
+								<!--begin::Input group-->
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-bold mb-2">National ID</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input required id="editedEmpNational_number" type="text" class="form-control form-control-solid" placeholder="National ID" name="national_number" pattern="\d{14}">
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Input group-->
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col-12 col-md-6">
+								<!--begin::Input group-->
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-bold mb-2">Address</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input required id="editedEmpAddress" type="text" class="form-control form-control-solid" placeholder="Address" name="address">
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Input group-->
+							</div>
+							<div class="col-12 col-md-6">
+
+								<!--begin::Input group-->
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-bold mb-2">Phone</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input required id="editedEmpPhone" type="text" class="form-control form-control-solid" placeholder="Phone number" name="phone" pattern="01\d{9}">
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Input group-->
+							</div>
+						</div>
+
+
+
+						<div class="row">
+							<div class="col-12 col-md-6">
+								<!--begin::Input group-->
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-bold mb-2">Gender</label>
+									<!--end::Label-->
+									<select id="editedEmpGender" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="" name="gender">
+										<option value="male">Male</option>
+										<option value="female">Female</option>
+									</select>
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Input group-->
+
+							</div>
+							<div class="col-12 col-md-6">
+								<!--begin::Input group-->
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-bold mb-2">Nationality</label>
+									<!--end::Label-->
+									<input required id="editedEmpNationality" type="text" class="form-control form-control-solid" placeholder="Nationality" name="nationality">
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Input group-->
+							</div>
+
+						</div>
+
+
+						<!--begin::Input group-->
+						<div class="fv-row mb-7 fv-plugins-icon-container">
+							<!--begin::Label-->
+							<label class="required fs-6 fw-bold mb-2">Birth date</label>
+							<!--end::Label-->
+							<div class="mb-0">
+								<input required id="editedEmpBirth_date" class="form-control form-control-solid custom_date_picker" placeholder="Pick a date" name="birth_date" />
+							</div>
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<!--end::Input group-->
+						<!--begin::Billing toggle-->
+						<div class="fw-bolder fs-3 rotate collapsible mb-7" data-bs-toggle="collapse" href="#kt_modal_edit_customer_billing_info" role="button" aria-expanded="false" aria-controls="kt_customer_view_details">
+							Work Information
+							<span class="ms-2 rotate-180">
+								<!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
+								<span class="svg-icon svg-icon-3">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										<path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="black"></path>
+									</svg>
+								</span>
+								<!--end::Svg Icon-->
+							</span>
+						</div>
+						<!--end::Billing toggle-->
+						<!--begin::Billing form-->
+						<div id="kt_modal_edit_customer_billing_info" class="collapse show" data-select2-id="select2-data-kt_modal_edit_customer_billing_info">
+
+
+							<div class="row g-9 mb-7">
+								<!--begin::Col-->
+								<div class="col-md-6 fv-row fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-bold mb-2">Attend From</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input required id="editedEmpAttend_from" class="form-control form-control-solid flatpickr-input custom_time_picker" placeholder="Pick date" type="text" name="attend_from">
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Col-->
+								<!--begin::Col-->
+								<div class="col-md-6 fv-row fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-bold mb-2">Attend To</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input required id="editedEmpAttend_to" class="form-control form-control-solid flatpickr-input custom_time_picker" placeholder="Pick date" type="text" name="attend_to">
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Col-->
+							</div>
+
+							<!--begin::Input group-->
+							<div class="fv-row mb-7 fv-plugins-icon-container">
+								<!--begin::Label-->
+								<label class="required fs-6 fw-bold mb-2">Department</label>
+								<!--end::Label-->
+								<select required id="editedEmpDept_id" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" name="dept_id">
+									@foreach (var department in departmentsList)
+									{
+										<option value="@department.Id">@department.Name</option>
+									}
+								</select>
+								<div class="fv-plugins-message-container invalid-feedback"></div>
+							</div>
+							<!--end::Input group-->
+
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<!--begin::Input group-->
+									<div class="fv-row mb-7 fv-plugins-icon-container">
+										<!--begin::Label-->
+										<label class="required fs-6 fw-bold mb-2">Job Title</label>
+										<!--end::Label-->
+										<!--begin::Input-->
+										<input required id="editedEmpJob_title" type="text" class="form-control form-control-solid" placeholder="Job Title" name="job_title">
+										<!--end::Input-->
+										<div class="fv-plugins-message-container invalid-feedback"></div>
+									</div>
+									<!--end::Input group-->
+								</div>
+								<div class="col-12 col-md-6">
+
+									<!--begin::Input group-->
+									<div class="fv-row mb-7 fv-plugins-icon-container">
+										<!--begin::Label-->
+										<label class="required fs-6 fw-bold mb-2">Salary</label>
+										<!--end::Label-->
+										<input required id="editedEmpSalary" class="form-control form-control-solid" type="number" placeholder="Salary" name="salary">
+										<div class="fv-plugins-message-container invalid-feedback"></div>
+									</div>
+									<!--end::Input group-->
+								</div>
+							</div>
+
+
+
+							<!--begin::Input group-->
+							<div class="fv-row mb-7 fv-plugins-icon-container">
+								<!--begin::Label-->
+								<label class="required fs-6 fw-bold mb-2">Contract date</label>
+								<!--end::Label-->
+								<div class="mb-0">
+									<input required id="editedEmpHire_date" class="form-control form-control-solid custom_date_picker" placeholder="Pick a date" name="hire_date" />
+								</div>
+								<div class="fv-plugins-message-container invalid-feedback"></div>
+							</div>
+							<!--end::Input group-->
+
+
+						</div>
+						<!--end::Billing form-->
+					</div>
+					<!--end::Scroll-->
+				</div>
+				<!--end::Modal body-->
+				<!--begin::Modal footer-->
+				<div class="modal-footer flex-center">
+					<!--begin::Button-->
+					<button type="reset" id="kt_modal_edit_customer_cancel" class="btn btn-light me-3">Discard</button>
+					<!--end::Button-->
+					<!--begin::Button-->
+					<button type="submit" id="kt_modal_edit_customer_submit" class="btn btn-primary">
+						<span class="indicator-label">Submit</span>
+						<span class="indicator-progress">
+							Please wait...
+							<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+						</span>
+					</button>
+					<!--end::Button-->
+				</div>
+				<!--end::Modal footer-->
+				<div></div>
+			</form>
+			<!--end::Form-->
+		</div>
+	</div>
+</div>

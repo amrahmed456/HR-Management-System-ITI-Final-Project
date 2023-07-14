@@ -1,0 +1,119 @@
+﻿@model List<Employee>
+@{
+    ViewData["Title"] = "Upload Attendance Excelsheet";
+    ViewData["ActiveLink"] = "attendance";
+}
+
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Hero card-->
+            <div class="card mb-12">
+                <!--begin::Hero body-->
+                <div class="card-body flex-column p-5">
+                    <!--begin::Hero content-->
+                    <div class="d-flex align-items-center h-lg-300px p-5 p-lg-15">
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column align-items-start justift-content-center flex-equal me-5">
+                            <!--begin::Title-->
+                            <h1 class="fw-bolder fs-4 fs-lg-1 text-gray-800 mb-5 mb-lg-10">Upload Attendance Excelsheet for today</h1>
+                            <!--end::Title-->
+                            <form method="post" enctype="multipart/form-data" action="/attendance/ImportFromExcel">
+                                @Html.AntiForgeryToken()
+                                <div class="position-relative w-100 d-flex align-items-center">
+                                    <input type="file" class="btn btn-primary" name="file">
+                                    <button type="submit" class="btn btn-success ms-3">Upload</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Wrapper-->
+                        <div class="flex-equal d-flex justify-content-center align-items-end ms-5">
+                            <!--begin::Illustration-->
+                            <img src="/assets/media/illustrations/sketchy-1/20.png" alt="" class="mw-100 mh-125px mh-lg-275px mb-lg-n12">
+                            <!--end::Illustration-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Hero content-->
+                    <!--begin::Hero nav-->
+                    <!--end::Hero nav-->
+                </div>
+                <!--end::Hero body-->
+            </div>
+            <!--end::Hero card-->
+
+            <div class="card">
+                <!--begin::Body-->
+                <div class="card-body p-10 p-lg-15">
+                    <!--begin::Content main-->
+                    <div class="mb-14">
+                        <!--begin::Heading-->
+                        <div class="mb-15">
+                            <!--begin::Title-->
+                            <h1 class="fs-2x text-dark mb-6">Upload with employees SSN</h1>
+                            <!--end::Title-->
+                            <!--begin::Text-->
+                            <div class="fs-5 text-gray-600 fw-bold">To Upload a valid xlsx file you need to mention every employee with his SSN correclty, and here is a list of employees' SSN</div>
+                            <!--end::Text-->
+                        </div>
+                        <!--end::Heading-->
+                        <!--begin::Body-->
+                        <!--begin::Table-->
+                        <div class="mb-14">
+                            <!--begin::Table container-->
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <tr class="fw-bolder fs-6 text-gray-800 text-center border-0 bg-light">
+                                            <th class="min-w-200px rounded-start"></th>
+                                            <th class="min-w-140px">SSN</th>
+                                            <th class="min-w-120px">Department</th>
+                                        </tr>
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody class="border-bottom border-dashed">
+                                        @foreach (var emp in Model)
+                                        {
+                                            <tr class="fw-bold fs-6 text-gray-800 text-center">
+                                                <td class="text-start ps-6 fs-4">@emp.Name</td>
+                                                <td>@emp.Ssn</td>
+                                                <td>@emp.Department.Name</td>
+                                            </tr>
+                                        }
+                                       
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                                <!--end::Table-->
+                            </div>
+                            <!--end::Table container-->
+                        </div>
+                        <!--end::Table-->
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Content main-->
+                    <!--begin::Card-->
+                    <div class="card mb-4 bg-light text-center">
+                        <!--begin::Body-->
+                        <div class="card-body py-12">
+                            <a href="/files/example.xlsx" download="" class="btn btn-success">Download xlsx Example</a>
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Card-->
+                </div>
+                <!--end::Body-->
+            </div>
+
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Post-->
+</div>

@@ -1,0 +1,299 @@
+﻿@{
+    ViewData["Title"] = "Account Settings";
+}
+
+<div class="content d-flex flex-column flex-column-fluid " id="kt_content">
+					<!--begin::Post-->
+                    <div class="post d-flex flex-column-fluid" id="kt_post">
+						<!--begin::Container-->
+<div id="kt_content_container" class=" container-xxl ">
+    
+<!--begin::Navbar-->
+<div class="card mb-5 mb-xl-10">
+    <div class="card-body pt-9 pb-0">
+        <!--begin::Details-->
+        <div class="d-flex flex-wrap flex-sm-nowrap">
+            <!--begin: Pic-->
+            <div class="me-7 mb-4">
+                <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+                    <img src="/assets/imgs/blank.png" alt="image">
+                    <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
+                </div>
+            </div>
+            <!--end::Pic-->
+
+            <!--begin::Info-->
+            <div class="flex-grow-1 d-flex align-items-center">
+                <!--begin::Title-->
+                <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+                    <!--begin::User-->
+                    <div class="d-flex flex-column">
+                        <!--begin::Name-->
+                        <div class="d-flex align-items-center mb-2">
+                            <div>
+                                <span href="#" class="text-gray-900 fs-2 fw-bold me-1">Amr Ahmed ( amrahmed 789 )</span>
+                                <div class="mt-4 text-gray-400 mb-2">
+                                    <p>mramrahmed456@gmail.com</p>
+                                </div>
+                                <span class="d-block fs-8 mb-1 badge badge-success">Role Name</span>
+                            </div>
+                        </div>
+                        <!--end::Name-->
+
+                                                
+                        
+                        <!--end::Info-->
+                    </div>
+                    <!--end::User-->
+
+                    
+                    
+                    
+                </div>
+                <!--end::Title-->
+
+                <!--begin::Stats-->
+                
+                <!--end::Stats-->
+            </div>
+            <!--end::Info-->
+        </div>
+        <!--end::Details-->   
+
+        <!--begin::Navs-->
+        
+        <!--begin::Navs-->
+    </div>
+</div>
+<!--end::Navbar-->
+
+<!--begin::Basic info-->
+<div class="card mb-5 mb-xl-10">
+    <!--begin::Card header-->
+    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+        <!--begin::Card title-->
+        <div class="card-title m-0">
+            <h3 class="fw-bold m-0">Profile Details</h3>
+        </div>
+        <!--end::Card title-->
+    </div>
+    <!--begin::Card header-->
+
+    <!--begin::Content-->
+    <div id="kt_account_settings_profile_details" class="collapse show">
+        <!--begin::Form-->
+        <form id="kt_account_profile_details_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+            <!--begin::Card body-->
+            <div class="card-body border-top p-9">
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Avatar</label>   
+                    <!--end::Label-->  
+                    
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <!--begin::Image input-->
+                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('/metronic8/demo8/assets/media/svg/avatars/blank.svg')">
+                            <!--begin::Preview existing avatar-->
+                            <div class="image-input-wrapper w-125px h-125px" style="background-image: url(/metronic8/demo8/assets/media/avatars/300-1.jpg)"></div>
+                            <!--end::Preview existing avatar-->
+
+                            <!--begin::Label-->
+                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-bs-original-title="Change avatar" data-kt-initialized="1">
+                                <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
+                                <!--begin::Inputs-->
+                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                <input type="hidden" name="avatar_remove">
+                                <!--end::Inputs-->
+                            </label>
+                            <!--end::Label-->
+
+                            <!--begin::Cancel-->
+                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" aria-label="Cancel avatar" data-bs-original-title="Cancel avatar" data-kt-initialized="1">
+                                <i class="ki-duotone ki-cross fs-2"><span class="path1"></span><span class="path2"></span></i>                            </span>
+                            <!--end::Cancel-->
+
+                            <!--begin::Remove-->
+                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" aria-label="Remove avatar" data-bs-original-title="Remove avatar" data-kt-initialized="1">
+                                <i class="ki-duotone ki-cross fs-2"><span class="path1"></span><span class="path2"></span></i>                            </span>
+                            <!--end::Remove-->
+                        </div>
+                        <!--end::Image input-->
+
+                        <!--begin::Hint-->
+                        <div class="form-text">Allowed file types:  png, jpg, jpeg.</div>
+                        <!--end::Hint-->
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Full Name</label>
+                    <!--end::Label-->
+
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <!--begin::Row-->
+                        <div class="row">
+                            <!--begin::Col-->
+                            <div class="col-lg-6 fv-row fv-plugins-icon-container">
+                                <input type="text" name="fname" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="First name" value="Max">
+                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <!--end::Col-->
+
+                        </div>
+                        <!--end::Row-->
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Email</label>
+                    <!--end::Label-->
+
+                    <!--begin::Col-->
+                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                        <input type="text" name="email" class="form-control form-control-lg form-control-solid" placeholder="Email address" value="mramrahmed456@gmail.com">
+                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Job title</label>
+                    <!--end::Label-->
+
+                    <!--begin::Col-->
+                    <div class="col-lg-8 fv-row">
+                        <input type="text" name="website" class="form-control form-control-lg form-control-solid" placeholder="Job title" value="IT support">
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+
+                
+            </div>
+            <!--end::Card body-->
+            
+
+            <!--begin::Actions-->
+            <div class="card-footer d-flex justify-content-end py-6 px-9">
+                
+                <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Save Changes</button>
+            </div>
+            <!--end::Actions-->
+        <input type="hidden">
+    </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Content-->
+
+    
+</div>
+
+<!--begin::Basic info-->
+<div class="card mb-5 mb-xl-10">
+    <!--begin::Card header-->
+    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+        <!--begin::Card title-->
+        <div class="card-title m-0">
+            <h3 class="fw-bold m-0">Change Password</h3>
+        </div>
+        <!--end::Card title-->
+    </div>
+    <!--begin::Card header-->
+
+    <!--begin::Content-->
+    <div id="kt_account_settings_profile_details" class="collapse show">
+        <!--begin::Form-->
+        <form id="kt_account_profile_details_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+            <!--begin::Card body-->
+            <div class="card-body border-top p-9">
+              
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Old password</label>
+                    <!--end::Label-->
+
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <!--begin::Row-->
+                        <div class="row">
+                            <!--begin::Col-->
+                            <div class="col-lg-12 fv-row fv-plugins-icon-container">
+                                <input type="password" name="old_password" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Old password">
+                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <!--end::Col-->
+
+                        </div>
+                        <!--end::Row-->
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">New Password</label>
+                    <!--end::Label-->
+
+                    <!--begin::Col-->
+                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                        <input type="password" class="form-control form-control-lg form-control-solid" placeholder="New Password">
+                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Confirm Password</label>
+                    <!--end::Label-->
+
+                    <!--begin::Col-->
+                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                        <input type="password" class="form-control form-control-lg form-control-solid" placeholder="Confirm Password">
+                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+
+
+                
+            </div>
+            <!--end::Card body-->
+            
+
+            <!--begin::Actions-->
+            <div class="card-footer d-flex justify-content-end py-6 px-9">
+                
+                <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Save Changes</button>
+            </div>
+            <!--end::Actions-->
+        <input type="hidden">
+    </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Content-->
+
+    
+</div>
+
+
+        </div>              	
+    </div>
+</div>
+
+    

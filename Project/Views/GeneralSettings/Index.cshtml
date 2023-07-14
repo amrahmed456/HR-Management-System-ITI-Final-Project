@@ -1,0 +1,159 @@
+﻿@model GeneralSettings
+@{
+	ViewData["Title"] = "General Settings";
+	ViewData["ActiveLink"] = "generalsettings";
+}
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+	
+	<!--begin::Post-->
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+		<!--begin::Container-->
+		<div id="kt_content_container" class="container-xxl">
+			<!--begin::Card-->
+			<div class="card">
+				<!--begin::Card body-->
+				<div class="card-body pt-0">
+
+					<!--begin::Table-->
+					<div id="kt_table_users_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+						<div class="table-responsive">
+							<!--begin::Form-->
+							<form class="form w-lg-500px mx-auto" method="post" action="\GeneralSettings\Save" novalidate="novalidate" id="kt_stepper_example_basic_form">
+								<!--begin::Group-->
+								<div class="mb-5">
+									<!--begin::Step 1-->
+									<div class="flex-column current" data-kt-stepper-element="content">
+										<h2 class="anchor fw-bolder mt-5" id="custom-checkbox-and-radio">
+											Additional/Late hours values:
+										</h2>
+										<!--begin::Input group-->
+										<div class="fv-row mb-10">
+											<!--begin::Label-->
+											<label class="form-label">Additional Hour Value (Per Hour):</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="number" class="form-control" placeholder="Enter Value For One Additional Hour" asp-for="add_hours" />
+											<span asp-validation-for="add_hours" class="text-danger"></span>
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-10">
+											<!--begin::Label-->
+											<label class="form-label">late Hour Value (Per Hour):</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="number" class="form-control" placeholder="Enter Value For One Hour latency" asp-for="sub_hours" />
+											<span asp-validation-for="sub_hours" class="text-danger"></span>
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+										<hr />
+										<h2 class="anchor fw-bolder mb-5" id="custom-checkbox-and-radio">
+											Weekly Day-Offs:
+										</h2>
+										<!--begin::Input group-->
+										<div class="fv-row mb-10">
+											<!--begin::Label-->
+											<label class="form-label">Weekly Day-Off (1):</label>
+											<!--end::Label-->
+											<!--begin::select-->
+											<select id="select1" class="form-select" asp-for="weekly_vacation1">
+												<option>---Select Day---</</option>
+												<option value="saturday">Saturday</option>
+												<option value="sunday">Sunday</option>
+												<option value="monday">Monday</option>
+												<option value="tuesday">Tuesday</option>
+												<option value="wednesday">Wednesday</option>
+												<option value="thursday">Thursday</option>
+												<option value="friday">Friday</option>
+											</select>
+											<span asp-validation-for="weekly_vacation1" class="text-danger"></span>
+										</div>
+										<!--end::select-->
+										<!--end::Input group-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-10">
+											<!--begin::Label-->
+											<label class="form-label">Weekly Day-Off (2):</label>
+											<!--end::Label-->
+											<!--begin::select-->
+											<select id="select2" class="form-select" asp-for="weekly_vacation2">
+												<option>---Select Day---</</option>
+												<option value="saturday">Saturday</option>
+												<option value="sunday">Sunday</option>
+												<option value="monday">Monday</option>
+												<option value="tuesday">Tuesday</option>
+												<option value="wednesday">Wednesday</option>
+												<option value="thursday">Thursday</option>
+												<option value="friday">Friday</option>
+											</select>
+										</div>
+										<!--end::select-->
+										<!--end::Input group-->
+										<hr />
+										<h2 class="anchor fw-bolder mb-5" id="custom-checkbox-and-radio">
+											Company Settings:
+										</h2>
+										<!--begin::Input group-->
+										<div class="fv-row mb-10">
+											<!--begin::Label-->
+											<label class="form-label">Company Establishment Date:</label>
+											<!--end::Label-->
+											<input class="form-control custom_date_picker" placeholder="Pick a date" asp-for="establishmentDate" />
+											<span asp-validation-for="establishmentDate" class="text-danger"></span>
+										</div>
+										<!--end::Input group-->
+									</div>
+
+								</div>
+								<!--begin::Actions-->
+								<div class="d-flex justify-content-end">
+									<!--begin::Wrapper-->
+									<div>
+										<button asp-controller="Dashboard" class="btn btn-danger">
+											<span>
+												Discard
+											</span>
+										</button>
+
+										<button type="submit" class="btn btn-primary">
+											Save
+										</button>
+									</div>
+									<!--end::Wrapper-->
+								</div>
+								<!--end::Actions-->
+							</form>
+							<!--end::Form-->
+
+						</div>
+					</div>
+					<!--end::Table-->
+				</div>
+				<!--end::Card body-->
+			</div>
+			<!--end::Card-->
+		</div>
+		<!--end::Container-->
+	</div>
+	<!--end::Post-->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+	$(document).ready(function () {
+		$('#select1').change(function () {
+			var selectedValue = $(this).val();
+			$('#select2 option[value="' + selectedValue + '"]').prop('disabled', true);
+		});
+
+		$('#select2').change(function () {
+			var selectedValue = $(this).val();
+			$('#select1 option[value="' + selectedValue + '"]').prop('disabled', true);
+		});
+	});
+
+
+</script>

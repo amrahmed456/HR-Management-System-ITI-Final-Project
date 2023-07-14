@@ -1,0 +1,153 @@
+﻿@model EditUserViewModel
+
+@{
+    ViewData["Title"] = "Edit staff";
+    ViewData["ActiveLink"] = "staff";
+}
+
+
+<div class="content d-flex flex-column flex-column-fluid " id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class=" container-xxl ">
+
+            <!--begin::Basic info-->
+            <div class="card mb-5 mb-xl-10">
+                <!--begin::Card header-->
+                <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+                    <!--begin::Card title-->
+                    <div class="card-title m-0">
+                        <h3 class="fw-bold m-0">Edit Staff Member</h3>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--begin::Card header-->
+                <!--begin::Content-->
+                <div id="kt_account_settings_profile_details" class="collapse show">
+                    <!--begin::Form-->
+                    <form asp-action="Edit" method="post" id="kt_account_profile_details_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+                        <!--begin::Card body-->
+                        <input type="hidden" asp-for="Id" />
+                        <div class="card-body border-top p-9">
+
+                            <!--begin::Input group-->
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Name</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8">
+                                    <!--begin::Row-->
+                                    <div class="row">
+                                        <!--begin::Col-->
+                                        <div class="col-lg-12 fv-row fv-plugins-icon-container">
+                                            <input placeholder="Staff Member Name" asp-for="Name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <!--end::Col-->
+
+                                    </div>
+                                    <!--end::Row-->
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label required fw-semibold fs-6">User name</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-lg-12 fv-row fv-plugins-icon-container">
+                                            <input placeholder="Username" asp-for="UserName" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" />
+                                            <span asp-validation-for="UserName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--end::Col-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Email</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-lg-12 fv-row fv-plugins-icon-container">
+                                            <input placeholder="name@example.com" asp-for="Email" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--end::Col-->
+                            </div>
+                            <!--end::Input group-->
+                          
+                            <!--begin::Input group-->
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Roles</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-lg-12 fv-row fv-plugins-icon-container">
+
+                                            @for (int i = 0; i < Model.Roles.Count; i++)
+                                            {
+                                                <div class="form-check m-1 mb-2 fs-3">
+                                                    <input type="hidden" asp-for="@Model.Roles[i].DisplayValue" />
+                                                    <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
+                                                        <input asp-for="@Model.Roles[i].IsSelected" class="form-check-input" type="checkbox">
+                                                        <label class="form-check-label" asp-for="@Model.Roles[i].IsSelected">
+                                                            @Model.Roles[i].DisplayValue
+                                                        </label>
+                                                    </label>
+                                                </div>
+
+
+
+                                            }
+                                            <span asp-validation-for="Roles" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!--end::Input group-->
+
+                        </div>
+                        <!--end::Card body-->
+                        <!--begin::Actions-->
+                        <div class="card-footer d-flex justify-content-end py-6 px-9">
+                            <a asp-action="Index" class="btn btn-secondary me-4">Cancel</a>
+
+                            <button type="submit" class="btn btn-success" data-kt-users-modal-action="submit">
+                                <span class="indicator-label">Save Changes</span>
+                                <span class="indicator-progress">
+                                    Please wait...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                        </div>
+                        <!--end::Actions-->
+                    </form>
+                    <!--end::Form-->
+                </div>
+                <!--end::Content-->
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

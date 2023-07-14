@@ -1,0 +1,77 @@
+﻿@model FinalProject.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<div class="container mt-2">
+    <h1 class="h3 mb-3 mt-2 font-weight-normal text-center text-primary" style="border-bottom: 2px solid #ccc; padding-bottom: 10px;">Employee Details</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th style="font-size: 1.1rem;">SSN</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.Ssn)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Name</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.Name)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Address</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.address)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Phone</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.phone)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Gender</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.gender)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Nationality</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.nationality)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Birth Date</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.birth_date)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">National Number</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.national_number)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Salary</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.salary)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Job Title</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.job_title)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Hire Date</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.hire_date)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Attendance Period</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.attend_from) - @Html.DisplayFor(model => model.attend_to)</td>
+                    </tr>
+                    <tr>
+                        <th style="font-size: 1.1rem;">Department</th>
+                        <td style="font-size: 1rem;">@Html.DisplayFor(model => model.Department.Name)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a class="btn btn-primary" asp-action="Index">
+                <span class=" mr-2"></span> Back to List
+            </a>
+        </div>
+    </div>
+</div>

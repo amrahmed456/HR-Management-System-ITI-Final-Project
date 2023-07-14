@@ -1,0 +1,301 @@
+﻿@model List<EmployeeAttendance>?
+@{
+    ViewData["Title"] = "Employees Attendance";
+    ViewData["ActiveLink"] = "attendance";
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+<div id="kt_content_container" class="container-xxl">
+
+<div class="card">
+        <!--begin::Card header-->
+        
+        <div class="card-header border-0 pt-6" data-select2-id="select2-data-78-723s">
+            <!--begin::Card title-->
+            <div class="card-title">
+                <!--begin::Search-->
+                <div class="d-flex align-items-center position-relative my-1">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                    <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black"></rect>
+                            <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black"></path>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                    <input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Employees / Departments">
+                </div>
+                <!--end::Search-->
+            </div>
+            <!--begin::Card title-->
+            <!--begin::Card toolbar-->
+            <div class="card-toolbar">
+                <!--begin::Toolbar-->
+                <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+                    <!--begin::Filter-->
+                    <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black"></path>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->Filter</button>
+                    <!--begin::Menu 1-->
+                    <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true" id="kt-toolbar-filter" data-select2-id="select2-data-kt-toolbar-filter">
+                        <!--begin::Header-->
+                        <div class="px-7 py-5">
+                            <div class="fs-4 text-dark fw-bolder">Filter Options</div>
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Separator-->
+                        <div class="separator border-gray-200"></div>
+                        <!--end::Separator-->
+                        <!--begin::Content-->
+                        <form method="get" id="filter-form">
+
+                            <div class="px-7 py-5">
+                                <!--begin::Input group-->
+                                <div class="mb-10" data-select2-id="select2-data-77-mz38">
+                                    <!--begin::Label-->
+                                    <label class="form-label fs-5 fw-bold mb-3">Date Range</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input name="data-range" class="form-control form-control-solid custom_date_range_picker" placeholder="Pick date rage"/>
+                                
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            
+                                <!--begin::Actions-->
+                                <div class="d-flex justify-content-end">
+                                    <button type="reset" class="btn btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset">Reset</button>
+                                    <button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true" data-kt-customer-table-filter="filter">Apply</button>
+                                </div>
+                                <!--end::Actions-->
+                            </div>
+                        </form>
+                        <!--end::Content-->
+                    </div>
+                    <!--end::Menu 1-->
+                    <!--end::Filter-->
+                    <!--begin::Export-->
+                    <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+                        <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr078.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect opacity="0.3" x="12.75" y="4.25" width="12" height="2" rx="1" transform="rotate(90 12.75 4.25)" fill="black"></rect>
+                                <path d="M12.0573 6.11875L13.5203 7.87435C13.9121 8.34457 14.6232 8.37683 15.056 7.94401C15.4457 7.5543 15.4641 6.92836 15.0979 6.51643L12.4974 3.59084C12.0996 3.14332 11.4004 3.14332 11.0026 3.59084L8.40206 6.51643C8.0359 6.92836 8.0543 7.5543 8.44401 7.94401C8.87683 8.37683 9.58785 8.34458 9.9797 7.87435L11.4427 6.11875C11.6026 5.92684 11.8974 5.92684 12.0573 6.11875Z" fill="black"></path>
+                                <path d="M18.75 8.25H17.75C17.1977 8.25 16.75 8.69772 16.75 9.25C16.75 9.80228 17.1977 10.25 17.75 10.25C18.3023 10.25 18.75 10.6977 18.75 11.25V18.25C18.75 18.8023 18.3023 19.25 17.75 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V11.25C4.75 10.6977 5.19771 10.25 5.75 10.25C6.30229 10.25 6.75 9.80228 6.75 9.25C6.75 8.69772 6.30229 8.25 5.75 8.25H4.75C3.64543 8.25 2.75 9.14543 2.75 10.25V19.25C2.75 20.3546 3.64543 21.25 4.75 21.25H18.75C19.8546 21.25 20.75 20.3546 20.75 19.25V10.25C20.75 9.14543 19.8546 8.25 18.75 8.25Z" fill="#C4C4C4"></path>
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->Export</button>
+                        <!--end::Export-->
+                        <!--begin::Add customer-->
+                            <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true" id="kt-toolbar-filter" data-select2-id="select2-data-kt-toolbar-filter">
+                            <!--begin::Header-->
+                            <div class="px-7 py-5">
+                                <div class="fs-4 text-dark fw-bolder">Export Options</div>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Separator-->
+                            <div class="separator border-gray-200"></div>
+                            <!--end::Separator-->
+                            <!--begin::Content-->
+                            <div class="px-7 py-5">
+                                <!--begin::Input group-->
+                                <div class="mb-4">
+                                    <a href="attendance/print?data-range=@ViewBag.dataRange" type="button" class="btn btn-success w-100">
+                                        <!--begin::Svg Icon | path: assets/media/icons/duotune/technology/teh006.svg-->
+<span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M5 11.3V11C5 9.9 5.9 9 7 9H17C18.1 9 19 9.9 19 11V11.3C18.7 11.1 18.4 11 18 11H6C5.6 11 5.3 11.1 5 11.3ZM4 13H3C2.4 13 2 13.4 2 14V18C2 18.6 2.4 19 3 19H4V13ZM22 18V14C22 13.4 21.6 13 21 13H20V19H21C21.6 19 22 18.6 22 18Z" fill="black"/>
+<path opacity="0.3" d="M18 21H6C4.9 21 4 20.1 4 19V13C4 11.9 4.9 11 6 11H18C19.1 11 20 11.9 20 13V19C20 20.1 19.1 21 18 21ZM14 3C14 2.4 13.6 2 13 2H11C10.4 2 10 2.4 10 3V9H14V3ZM6 12C5.4 12 5 12.4 5 13C5 13.6 5.4 14 6 14C6.6 14 7 13.6 7 13C7 12.4 6.6 12 6 12ZM18 12C17.4 12 17 12.4 17 13C17 13.6 17.4 14 18 14C18.6 14 19 13.6 19 13C19 12.4 18.6 12 18 12ZM6 18C5.4 18 5 18.4 5 19C5 19.6 5.4 20 6 20C6.6 20 7 19.6 7 19C7 18.4 6.6 18 6 18ZM18 18C17.4 18 17 18.4 17 19C17 19.6 17.4 20 18 20C18.6 20 19 19.6 19 19C19 18.4 18.6 18 18 18Z" fill="black"/>
+</svg></span>
+<!--end::Svg Icon-->
+                                        Print
+                                    </a>
+                                </div>
+                                <div class="mb-4">
+        
+
+                                  <a href="attendance/exportpdf?data-range=@ViewBag.dataRange" type="button" class="btn btn-info w-100">
+                                          <!--begin::Svg Icon | path: assets/media/icons/duotune/files/fil021.svg-->
+                                        <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path opacity="0.3" d="M19 15C20.7 15 22 13.7 22 12C22 10.3 20.7 9 19 9C18.9 9 18.9 9 18.8 9C18.9 8.7 19 8.3 19 8C19 6.3 17.7 5 16 5C15.4 5 14.8 5.2 14.3 5.5C13.4 4 11.8 3 10 3C7.2 3 5 5.2 5 8C5 8.3 5 8.7 5.1 9H5C3.3 9 2 10.3 2 12C2 13.7 3.3 15 5 15H19Z" fill="black"/>
+                                        <path d="M13 17.4V12C13 11.4 12.6 11 12 11C11.4 11 11 11.4 11 12V17.4H13Z" fill="black"/>
+                                        <path opacity="0.3" d="M8 17.4H16L12.7 20.7C12.3 21.1 11.7 21.1 11.3 20.7L8 17.4Z" fill="black"/>
+                                        </svg></span>
+                                        <!--end::Svg Icon-->
+                                        Export as PDF
+                                    </a>
+                                </div>
+                                <!--end::Input group-->
+                                
+                                
+                            </div>
+                            <!--end::Content-->
+                        </div>
+                    </div>
+
+                    
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_create_new_attendance">New Attendance</button>
+                    <!--end::Add customer-->
+                </div>
+                <!--end::Toolbar-->
+                
+            </div>
+            <!--end::Card toolbar-->
+        </div>
+        
+        <div class="card-body pt-0">
+            <!--begin::Table-->
+            <div id="kt_customers_table_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="table-responsive"><table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer" id="kt_customers_table">
+                <!--begin::Table head-->
+                <thead>
+                    <!--begin::Table row-->
+                    <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+                        <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" style="width: 115px;" aria-label="Customer Name: activate to sort column ascending">
+                        Employee Name
+                        </th>
+                        <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" style="width: 115px;" aria-label="Customer Name: activate to sort column ascending">
+                        Department
+                        </th>
+                        <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" style="width: 105.383px;" aria-label="Email: activate to sort column ascending">Check in</th>
+                        <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" style="width: 125px;" aria-label="Company: activate to sort column ascending">Check out</th>
+                        <th class="text-start min-w-70px sorting_disabled" rowspan="1" colspan="1" style="width: 79.7px;" aria-label="Actions">Date</th>
+                        <th class="text-start min-w-70px sorting_disabled" rowspan="1" colspan="1" style="width: 79.7px;" aria-label="Actions">Actions</th>
+                    </tr>
+                    <!--end::Table row-->
+                </thead>
+                
+                
+                <tbody class="fw-bold text-gray-600">
+                    @foreach(var attendance in Model){
+                        <tr class="odd">
+                            <td>@attendance.Employee.Name</td>
+                            <td>@attendance.Department</td>
+                            @if(attendance.IsVacation){
+                                <td colspan="2" class="text text-success">@attendance.VacationName</td>
+                            }else if (!attendance.IsVacation && attendance.Amount == 0)
+                            {
+                                // absence
+                                <td class="text-danger text-center" colspan="2">Absent</td>
+                            }
+                            else{
+                                <td>@attendance.CheckIn.ToString("hh\\:mm\\ tt")</td>
+                                <td>@attendance.CheckOut.ToString("hh\\:mm\\ tt")</td>
+                                            
+                            }
+                            
+                            <td>@attendance.CreatedAt.ToShortDateString()</td>
+
+                            <!--begin::Action=-->
+                            <td class="text-end">
+                                @if(!attendance.IsVacation){
+                                    @if(DateTime.Now.Date == attendance.CreatedAt.Date){
+                                        <a href="#" class="btn btn-sm btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                            Actions
+                                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
+                                            <span class="svg-icon svg-icon-5 m-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="black"></path>
+                                                </svg>
+                                            </span>
+                                            <!--end::Svg Icon-->
+                                        </a>
+                                        <!--begin::Menu-->
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
+                                            <!--begin::Menu item-->
+
+                                            <div class="menu-item px-3 edit-campaign">
+                                                <a href="/attendance/edit/@attendance.Id" class="menu-link px-3">Edit</a>
+                                            </div>
+                                            <div class="delete_attendance menu-item px-3" data-id="@attendance.Id" data-kt-customer-table-filter="delete_row" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+                                                <a href="" class="menu-link px-3" data-kt-customer-table-filter="delete_row" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">Delete</a>
+                                            </div>
+                                            <!--end::Menu item-->
+
+                                        </div>
+                                        <!--end::Menu-->
+                                    }
+                                }
+                                
+                            </td>
+                            <!--end::Action=-->
+                        </tr>
+                    }
+                    
+                                                        
+                    </tbody>
+                <!--end::Table body-->
+            </table></div></div>
+            <!--end::Table-->
+        </div>
+        <!--end::Card body-->
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+<div class="modal fade" id="kt_modal_new_card" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mw-650px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delete Attendance</h2>
+                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                    <span class="svg-icon svg-icon-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black"></rect>
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black"></rect>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <form action="/attendance/delete" method="POST" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="" id="kt_modal_new_card_form">
+            @Html.AntiForgeryToken()
+            <input type="number" id="attendance_id_form" name="id" value="" hidden="">
+
+                <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                    <!--begin::Form-->
+                    <div class="scroll-y me-n7 pe-7" id="kt_modal_add_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header" data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px" style="max-height: 162px;">
+                        <h2 class="text-center text-danger">Are you sure you want to delete this Attendance Record ?</h2>
+                        <div class="form-group row">
+
+                
+                            <!--begin::Actions-->
+                            <div class="text-center pt-15">
+                                <button type="reset" id="kt_modal_new_card_cancel" class="btn btn-light me-3">Discard</button>
+                                <button type="submit" class="btn btn-danger" data-kt-users-modal-action="submit">
+                                    <span class="indicator-label">Delete Attendance</span>
+                                    <span class="indicator-progress">
+                                        Please wait...
+                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                    </span>
+                                </button>
+                            </div>
+                    </div>
+                </div>
+            </div><div></div></form>
+    </div>
+    </div>
+    <!--end::Modals-->
+</div>
+@await Html.PartialAsync("_AttendanceCreateModal")
+
+@section JS{
+    <script>
+        $(document).ready(function(){
+            $(".delete_attendance").on("click" , function(){
+                let id = $(this).attr("data-id");
+                $("#attendance_id_form").val(id);
+            });
+        });
+    </script>
+}

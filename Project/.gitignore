@@ -1,0 +1,36 @@
+# Ignore bin and obj folders
+bin/
+obj/
+
+# Ignore .vs folder
+.vs/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.cache
+*.log
+*.vspscc
+*.pidb
+*.docstates
+
+# Ignore debug files
+*.pdb
+*.dll
+*.exe
+
+# Ignore temporary files
+*.bak
+*.cache
+*.tmp
+*.log
+*.dat
+*.vspscc
+*.ncrunch*
+*.resharper*
+
+
+# Custom
+
+.vscode/
+

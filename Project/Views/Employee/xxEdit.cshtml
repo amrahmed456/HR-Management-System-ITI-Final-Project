@@ -1,0 +1,271 @@
+﻿@{
+    ViewData["Title"] = "Edit Employee";
+    ViewData["ActiveLink"] = "employee";
+}
+
+
+<div class="content d-flex flex-column flex-column-fluid " id="kt_content">
+					<!--begin::Post-->
+                    <div class="post d-flex flex-column-fluid" id="kt_post">
+						<!--begin::Container-->
+<div id="kt_content_container" class=" container-xxl ">
+    
+
+<div class="card mb-5 mb-xl-10">
+    <!--begin::Card header-->
+    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+        <!--begin::Card title-->
+        <div class="card-title m-0">
+            <h3 class="fw-bold m-0">Edit Employee</h3>
+        </div>
+        <!--end::Card title-->
+    </div>
+    <!--begin::Card header-->
+
+    <!--begin::Content-->
+    <div id="kt_account_settings_profile_details" class="collapse show">
+        <!--begin::Form-->
+        <form id="kt_account_profile_details_form" class="form fv-plugins-bootstrap5 fv-plugins-framework">
+            <!--begin::Card body-->
+            <div class="card-body border-top p-9">
+                    
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                            <!--begin::Input group-->
+                        <div class="fv-row mb-7 fv-plugins-icon-container">
+                            <!--begin::Label-->
+                            <label class="required fs-6 fw-bold mb-2">Name</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="text" class="form-control form-control-solid" placeholder="Employee Name" name="name">
+                            <!--end::Input-->
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <!--end::Input group-->
+                    </div>
+                    <div class="col-12 col-md-6">
+                            <!--begin::Input group-->
+                        <div class="fv-row mb-7 fv-plugins-icon-container">
+                            <!--begin::Label-->
+                            <label class="required fs-6 fw-bold mb-2">National ID</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="text" class="form-control form-control-solid" placeholder="National ID" name="name">
+                            <!--end::Input-->
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <!--end::Input group-->
+                    </div>
+                </div>
+                   
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-7 fv-plugins-icon-container">
+                            <!--begin::Label-->
+                            <label class="required fs-6 fw-bold mb-2">Address</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="text" class="form-control form-control-solid" placeholder="Address" name="name">
+                            <!--end::Input-->
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <!--end::Input group-->
+                    </div>
+                    <div class="col-12 col-md-6">
+                            
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-7 fv-plugins-icon-container">
+                            <!--begin::Label-->
+                            <label class="required fs-6 fw-bold mb-2">Phone</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="text" class="form-control form-control-solid" placeholder="Phone number" name="name">
+                            <!--end::Input-->
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <!--end::Input group-->
+                    </div>
+                </div>
+                    
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-7 fv-plugins-icon-container">
+                            <!--begin::Label-->
+                            <label class="required fs-6 fw-bold mb-2">Gender</label>
+                            <!--end::Label-->
+                            <select class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+                                <option></option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <!--end::Input group-->
+                            
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-7 fv-plugins-icon-container">
+                            <!--begin::Label-->
+                            <label class="required fs-6 fw-bold mb-2">Nationality</label>
+                            <!--end::Label-->
+                            <input type="text" class="form-control form-control-solid" placeholder="Nationality" name="name">
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <!--end::Input group-->
+                    </div>
+                        
+                </div>
+                    
+
+                <!--begin::Input group-->
+                <div class="fv-row mb-7 fv-plugins-icon-container">
+                    <!--begin::Label-->
+                    <label class="required fs-6 fw-bold mb-2">Birth date</label>
+                    <!--end::Label-->
+                    <div class="mb-0">
+                        <input class="form-control form-control-solid custom_date_picker" placeholder="Pick a date"/>
+                    </div>
+                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                </div>
+                <!--end::Input group-->
+                    
+                   
+                <!--begin::Billing toggle-->
+                <div class="fw-bolder fs-3 rotate collapsible mb-7" data-bs-toggle="collapse" href="#kt_modal_add_customer_billing_info" role="button" aria-expanded="false" aria-controls="kt_customer_view_details">Work Information
+                    <span class="ms-2 rotate-180">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
+                        <span class="svg-icon svg-icon-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="black"></path>
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                </div>
+                <!--end::Billing toggle-->
+                <!--begin::Billing form-->
+                    <div id="kt_modal_add_customer_billing_info" class="collapse show" data-select2-id="select2-data-kt_modal_add_customer_billing_info">
+                       
+                        
+                        <div class="row g-9 mb-7">
+                            <!--begin::Col-->
+                            <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="required fs-6 fw-bold mb-2">Attend From</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input class="form-control form-control-solid flatpickr-input custom_time_picker" placeholder="Pick date" type="text" readonly="readonly">
+                                <!--end::Input-->
+                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="required fs-6 fw-bold mb-2">Attend To</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input class="form-control form-control-solid flatpickr-input custom_time_picker" placeholder="Pick date" type="text" readonly="readonly">
+                                <!--end::Input-->
+                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-7 fv-plugins-icon-container">
+                            <!--begin::Label-->
+                            <label class="required fs-6 fw-bold mb-2">Department</label>
+                            <!--end::Label-->
+                            <select class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+                                <option></option>
+                                <option value="1">IT</option>
+                                <option value="2">CS</option>
+                                <option value="2">DP</option>
+                                <option value="2">UI</option>
+                            </select>
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <!--end::Input group-->
+
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                 <!--begin::Input group-->
+                                <div class="fv-row mb-7 fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-bold mb-2">Job Title</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" placeholder="Job Title" name="name">
+                                    <!--end::Input-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <div class="col-12 col-md-6">
+                                
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7 fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-bold mb-2">Salary</label>
+                                    <!--end::Label-->
+                                    <input class="form-control form-control-solid" placeholder="Salary" name="state">
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                        </div>
+                       
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-7 fv-plugins-icon-container">
+                            <!--begin::Label-->
+                            <label class="required fs-6 fw-bold mb-2">Contract date</label>
+                            <!--end::Label-->
+                           <div class="mb-0">
+                                <input class="form-control form-control-solid custom_date_picker" placeholder="Pick a date"/>
+                            </div>
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <!--end::Input group-->
+                        
+                        
+                    </div>
+                    <!--end::Billing form-->
+            </div>
+            <!--end::Scroll-->
+            <!--begin::Actions-->
+            <div class="card-footer d-flex justify-content-end py-6 px-9">
+
+                <!--begin::Button-->
+                <button type="submit" id="kt_modal_add_customer_submit" class="btn btn-primary">
+                    <span class="indicator-label">Save Changes</span>
+                    <span class="indicator-progress">
+                        Please wait...
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </button>
+                <!--end::Button-->
+            </div>
+         </form>
+        </div>
+        <!--end::Modal body-->
+            
+        <div>
+             
+        </div>
+                
+   
+        <!--end::Form-->
+    </div>
+
+    <!--end::Content-->
+
+    
+</div>
+        </div>     
+        
+    </div>
+
+</div>

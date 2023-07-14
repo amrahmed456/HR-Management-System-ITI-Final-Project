@@ -1,0 +1,259 @@
+﻿@model List<EmployeeAttendance>
+@{
+    ViewData["Title"] = "Dashboard";
+    ViewData["ActiveLink"] = "dashboard";
+    DateTime currentDate = DateTime.Now;
+}
+
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Row-->
+            <h1>@currentDate.DayOfWeek.ToString().ToLower()</h1>
+            <p class="lead">@currentDate.ToShortDateString()</p>
+            <div class="row g-5 g-xl-8">
+                <div class="col-xl-4">
+                    <!--begin::Statistics Widget 5-->
+                    <a href="/department" class="card bg-body-white hoverable card-xl-stretch mb-xl-8">
+                        <!--begin::Body-->
+                        <div class="card-body">
+                            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
+                            <span class="svg-icon svg-icon-muted svg-icon-3x">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path opacity="0.3" d="M21.25 18.525L13.05 21.825C12.35 22.125 11.65 22.125 10.95 21.825L2.75 18.525C1.75 18.125 1.75 16.725 2.75 16.325L4.04999 15.825L10.25 18.325C10.85 18.525 11.45 18.625 12.05 18.625C12.65 18.625 13.25 18.525 13.85 18.325L20.05 15.825L21.35 16.325C22.35 16.725 22.35 18.125 21.25 18.525ZM13.05 16.425L21.25 13.125C22.25 12.725 22.25 11.325 21.25 10.925L13.05 7.62502C12.35 7.32502 11.65 7.32502 10.95 7.62502L2.75 10.925C1.75 11.325 1.75 12.725 2.75 13.125L10.95 16.425C11.65 16.725 12.45 16.725 13.05 16.425Z" fill="black" />
+                                    <path d="M11.05 11.025L2.84998 7.725C1.84998 7.325 1.84998 5.925 2.84998 5.525L11.05 2.225C11.75 1.925 12.45 1.925 13.15 2.225L21.35 5.525C22.35 5.925 22.35 7.325 21.35 7.725L13.05 11.025C12.45 11.325 11.65 11.325 11.05 11.025Z" fill="black" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">@ViewBag.departmentsCount</div>
+                            <div class="fw-bold text-gray-400">All Departments</div>
+                        </div>
+                        <!--end::Body-->
+                    </a>
+                    <!--end::Statistics Widget 5-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin::Statistics Widget 5-->
+                    <a href="/employee" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
+                        <!--begin::Body-->
+                        <div class="card-body">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen008.svg-->
+                            <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="black" />
+                                    <path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="black" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                            <div class="text-white fw-bolder fs-2 mb-2 mt-5">
+                                @ViewBag.employeesCount
+                            </div>
+                            <div class="fw-bold text-white">Total Employees</div>
+                        </div>
+                        <!--end::Body-->
+                    </a>
+                    <!--end::Statistics Widget 5-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin::Statistics Widget 5-->
+                    <a href="" class="card bg-dark hoverable card-xl-stretch mb-5 mb-xl-8">
+                        <!--begin::Body-->
+                        <div class="card-body">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr070.svg-->
+                            <span class="svg-icon svg-icon-muted svg-icon-3x">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="black" />
+                                    <rect opacity="0.3" x="14" y="4" width="4" height="4" rx="2" fill="black" />
+                                    <path d="M4.65486 14.8559C5.40389 13.1224 7.11161 12 9 12C10.8884 12 12.5961 13.1224 13.3451 14.8559L14.793 18.2067C15.3636 19.5271 14.3955 21 12.9571 21H5.04292C3.60453 21 2.63644 19.5271 3.20698 18.2067L4.65486 14.8559Z" fill="black" />
+                                    <rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="black" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">
+                                @ViewBag.usersCount
+                            </div>
+                            <div class="fw-bold text-gray-100">Total Users</div>
+                        </div>
+                        <!--end::Body-->
+                    </a>
+                    <!--end::Statistics Widget 5-->
+                </div>
+            </div>
+
+            <!--begin::Row-->
+            <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+                <div class="col-xl-4">
+                    <div class="card h-md-100" dir="ltr">
+                        <!--begin::Body-->
+                        <div class="card-body d-flex flex-column flex-center">
+                            <!--begin::Heading-->
+                            <div class="mb-2">
+                                <!--begin::Title-->
+                                <h1 class="fw-semibold text-gray-800 text-center lh-lg">
+                                    New Employee to add ?
+                                </h1>
+                                <!--end::Title-->
+                                <!--begin::Illustration-->
+                                <div class="py-10 text-center">
+                                    <img src="/assets/media/illustrations/1.svg" class="theme-light-show w-200px" alt="">
+                                </div>
+                                <!--end::Illustration-->
+                            </div>
+                            <!--end::Heading-->
+                            <!--begin::Links-->
+                            <div class="text-center mb-1">
+                                <!--begin::Link-->
+
+
+                                <a class="btn btn-sm btn-primary me-2" data-bs-target="#kt_modal_add_customer" data-bs-toggle="modal">
+                                    Add New
+                                </a>
+                                
+                                @*<a class="btn btn-sm btn-primary me-2" asp-controller="Employee" asp-action="Index" >
+                                    Add New
+                                </a>*@
+                                <!--end::Link-->
+                                <!--begin::Link-->
+                                <a class="btn btn-sm btn-light" asp-controller="Employee" asp-action="Index">
+                                    View Employees
+                                </a>
+                                <!--end::Link-->
+                            </div>
+                            <!--end::Links-->
+                        </div>
+                        <!--end::Body-->
+                    </div>
+
+                </div>
+                <div class="col-xl-8">
+                    <div class="card card-flush h-xl-100">
+                        <!--begin::Header-->
+                        <div class="card-header pt-7">
+                            <!--begin::Title-->
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="card-label fw-bold text-gray-800">Attendance for today</span>
+
+                                <span class="text-gray-400 mt-1 fw-semibold fs-6">Latest 6 users attended today</span>
+                            </h3>
+                            <!--end::Title-->
+                            <!--begin::Toolbar-->
+                            <div class="card-toolbar">
+                                <a href="/attendance" class="btn btn-sm btn-light">View all</a>
+                            </div>
+                            <!--end::Toolbar-->
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Body-->
+                        <div class="card-body">
+                            <!--begin::Table container-->
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
+                                            <th class="p-0 pb-3 min-w-100px">NAME</th>
+                                            <th class="p-0 pb-3 min-w-100px">DEPARTMENT</th>
+                                            <th class="p-0 pb-3 min-w-125px">CHECK IN</th>
+                                            <th class="p-0 pb-3 min-w-100px">CHECK OUT</th>
+                                        </tr>
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody>
+                                        @foreach (var attendance in Model)
+                                        {
+                                            <tr>
+
+                                                <td class="pe-0">
+                                                    <span class="text-gray-600 fw-bold fs-6">@attendance.Employee.Name</span>
+                                                </td>
+
+                                                <td class="pe-0">
+                                                    <span class="text-gray-600 fw-bold fs-6">@attendance.Department</span>
+                                                </td>
+                                                @if (attendance.IsVacation)
+                                                {
+                                                    <td colspan="2" class="text text-success">@attendance.VacationName</td>
+                                                }else{
+                                                    <td class="pe-0">
+                                                        <span class="text-gray-600 fw-bold fs-6">@attendance.CheckIn.ToString("hh\\:mm\\ tt")</span>
+                                                    </td>
+                                                    <td class="pe-0">
+                                                        <span class="text-gray-600 fw-bold fs-6">@attendance.CheckOut.ToString("hh\\:mm\\ tt")</span>
+                                                    </td>
+                                                }
+                                               
+
+                                            </tr>
+                                        }
+                                        
+
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                            </div>
+                            <!--end::Table-->
+                        </div>
+                        <!--end: Card Body-->
+                    </div>
+                </div>
+            </div>
+            <!--end::Row-->
+
+            <div class="card" style="background: linear-gradient(112.14deg, #FF8A00 0%, #E96922 100%)">
+                <!--begin::Body-->
+                <div class="card-body">
+                    <!--begin::Row-->
+                    <div class="row align-items-center">
+                        <!--begin::Col-->
+                        <div class="col-sm-7 pe-0 mb-5 mb-sm-0">
+                            <!--begin::Wrapper-->
+                            <div class="d-flex justify-content-between h-100 flex-column pt-xl-5 pb-xl-2 ps-xl-7">
+                                <!--begin::Container-->
+                                <div class="mb-7">
+                                    <!--begin::Title-->
+                                    <div class="mb-6">
+                                        <h3 class="fs-2x fw-semibold text-white">Quickly Add New Attendance Record</h3>
+                                        <span class="fw-semibold text-white opacity-75">select employee name and quickly record his attendace for today</span>
+                                    </div>
+                                    <!--end::Title-->
+
+                                </div>
+                                <!--end::Container-->
+                                <!--begin::Action-->
+                                <div class="m-0">
+                                    <button class="btn btn-color-white bg-white bg-opacity-15 bg-hover-opacity-25 fw-semibold" data-bs-toggle="modal" data-bs-target="#kt_create_new_attendance">
+                                        Record New Attendance
+                                    </button>
+                                </div>
+                                <!--begin::Action-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        <!--begin::Col-->
+                        <!--begin::Col-->
+                        <div class="col-sm-5">
+                            <!--begin::Illustration-->
+                            <img src="/assets/media/illustrations/7.svg" class="h-200px h-lg-250px my-n6" alt="">
+                            <!--end::Illustration-->
+                        </div>
+                        <!--begin::Col-->
+                    </div>
+                    <!--begin::Row-->
+                </div>
+                <!--end::Body-->
+            </div>
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Post-->
+</div>
+<!--end::Content-->
+@await Html.PartialAsync("_AttendanceCreateModal")
+
+@*@await Html.PartialAsync("~/Views/Employee/_AddFormPartial.cshtml")*@
+<partial name="~/Views/Employee/_AddFormPartial.cshtml" />

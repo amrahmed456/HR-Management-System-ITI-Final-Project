@@ -1,0 +1,134 @@
+﻿@model AddRoleViewModel
+
+@{
+    ViewData["Title"] = "Create Role";
+    ViewData["ActiveLink"] = "roles";
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Hero card-->
+            <div class="card mb-12">
+                <!--begin::Hero body-->
+                <div class="card-body flex-column p-5">
+                    <!--begin::Hero content-->
+                    <button class="btn btn-sm btn-info">Back To Roles</button>
+                    <form method="post" asp-action="Add" id="kt_modal_add_role_form" class="form fv-plugins-bootstrap5 fv-plugins-framework">
+                        <div class="d-flex align-items-center p-5 p-lg-15">
+                            <!--begin::Wrapper-->
+
+                            <div class="d-flex flex-column align-items-start justift-content-center flex-equal me-5">
+
+
+                                <!--begin::Scroll-->
+                                <h1 class="mb-12 mt-12">Edit Role</h1>
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-10 fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="fs-5 fw-bolder form-label mb-2">
+                                        <span class="required">Role name</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input asp-for="RoleName" class="form-control form-control-solid" placeholder="Enter a role name" name="RoleName">
+                                    <span asp-validation-for="RoleName" class="text-danger"></span>
+                                    <!--end::Input-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Permissions-->
+                                <div class="fv-row">
+                                    <!--begin::Label-->
+                                    <label class="fs-5 fw-bolder form-label mb-2">Role Permissions</label>
+                                    <!--end::Label-->
+                                    <!--begin::Table wrapper-->
+                                    <div class="table-responsive">
+                                        <!--begin::Table-->
+                                        <table class="table align-middle table-row-dashed fs-6 gy-5">
+                                            <!--begin::Table body-->
+                                            <tbody class="text-gray-600 fw-bold">
+                                                @for (int i = 0; i < Model.RoleCalims.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <!--begin::Label-->
+                                                        <td class="text-gray-800">@Model.RoleCalims[i].DisplayValue.Split('.')[1]</td>
+                                                        <!--end::Label-->
+                                                        <!--begin::Options-->
+                                                        <td>
+                                                            <!--begin::Wrapper-->
+                                                            <div class="d-flex">
+                                                                <!--begin::Checkbox-->
+                                                                <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
+                                                                    <div class="form-check m-1">
+
+                                                                        <input type="hidden" asp-for="@Model.RoleCalims[i].DisplayValue" />
+                                                                        <input asp-for="@Model.RoleCalims[i].IsSelected" class="form-check-input" type="checkbox">
+                                                                    </div>
+                                                                    <span class="form-check-label">@Model.RoleCalims[i].DisplayValue.Split('.')[2]</span>
+                                                                </label>
+                                                                <!--end::Checkbox-->
+                                                                <!--begin::Checkbox-->
+                                                                @* <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
+                                                            <input class="form-check-input" type="checkbox" value="" name="repository_management_read">
+                                                            <span class="form-check-label">Create</span>
+                                                            </label>*@
+                                                                <!--end::Checkbox-->
+                                                                <!--begin::Checkbox-->
+                                                                @* <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
+                                                            <input class="form-check-input" type="checkbox" value="" name="repository_management_write">
+                                                            <span class="form-check-label">Edit</span>
+                                                            </label>*@
+                                                                <!--end::Checkbox-->
+                                                                <!--begin::Checkbox-->
+                                                                @* <label class="form-check form-check-sm form-check-custom form-check-solid">
+                                                            <input class="form-check-input" type="checkbox" value="" name="repository_management_create">
+                                                            <span class="form-check-label">Delete</span>
+                                                            </label>*@
+                                                                <!--end::Checkbox-->
+                                                            </div>
+                                                            <!--end::Wrapper-->
+                                                        </td>
+                                                        <!--end::Options-->
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                            <!--end::Table body-->
+                                        </table>
+                                        <!--end::Table-->
+                                    </div>
+                                    <!--end::Table wrapper-->
+                                </div>
+                                <!--end::Permissions-->
+                            </div>
+                            <!--end::Scroll-->
+
+                            <div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer mt-10 d-flex justify-content-start py-4 px-9">
+                            <button id="updateButton" type="submit" class="btn btn-success py-3">
+                                <span class="indicator-label">Submit</span>
+                                <span class="indicator-progress">
+                                    Please wait...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    <!--end::Hero content-->
+                    <!--begin::Hero nav-->
+                    <!--end::Hero nav-->
+                </div>
+                <!--end::Hero body-->
+            </div>
+            <!--end::Hero card-->
+
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Post-->
+</div>
